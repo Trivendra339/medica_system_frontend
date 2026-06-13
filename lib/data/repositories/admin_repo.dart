@@ -1,6 +1,6 @@
-import '../../helper/api.dart';
-import '../../helper/api_service.dart';
-import '../doctor_model.dart';
+import '../../helper/api/api.dart';
+import '../../helper/api/api_service.dart';
+import '../models/doctor_model.dart';
 
 class AdminRepo {
   final ApiService _apiService = ApiService();

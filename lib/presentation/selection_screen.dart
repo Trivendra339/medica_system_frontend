@@ -81,7 +81,7 @@ class SelectionScreen extends StatelessWidget {
 
                     const SizedBox(height: TAppSizes.xol),
 
-                    // Doctor Card
+
                     _buildRoleCard(
                       context: context,
                       title: 'Doctor',

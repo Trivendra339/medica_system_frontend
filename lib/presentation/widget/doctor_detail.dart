@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../data/doctor_model.dart';
+import '../../data/models/doctor_model.dart';
 import '../../helper/sizes.dart';
 
 class DoctorDetailWidget extends StatelessWidget {
@@ -21,13 +21,13 @@ class DoctorDetailWidget extends StatelessWidget {
       children: [
         const SizedBox(height: TAppSizes.xl),
 
-        const Center(
-          child: CircleAvatar(
-            radius: 40,
-            backgroundColor: Colors.blueGrey,
-            child: Icon(Icons.person, color: Colors.white, size: 40),
-          ),
-        ),
+        // const Center(
+        //   child: CircleAvatar(
+        //     radius: 40,
+        //     backgroundColor: Colors.blueGrey,
+        //     child: Icon(Icons.person, color: Colors.white, size: 40),
+        //   ),
+        // ),
         const SizedBox(height: TAppSizes.xl),
 
         _item("Name", doctor.name),

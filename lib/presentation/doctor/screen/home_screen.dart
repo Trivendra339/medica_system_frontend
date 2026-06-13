@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart'; //
-import 'package:plumedica/data/doctor_model.dart';
+import 'package:plumedica/data/models/doctor_model.dart';
 import 'package:plumedica/presentation/auth/controller/login_controller.dart';
 import 'package:plumedica/presentation/widget/dashboard_header.dart';
 import 'package:plumedica/presentation/widget/doctor_detail.dart';

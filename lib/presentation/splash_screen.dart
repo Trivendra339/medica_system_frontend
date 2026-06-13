@@ -9,7 +9,7 @@ import 'package:plumedica/presentation/selection_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/bd.dart';
-import '../data/doctor_model.dart';
+import '../data/models/doctor_model.dart';
 import 'doctor/screen/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {

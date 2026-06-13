@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:plumedica/data/doctor_model.dart';
+import 'package:plumedica/data/models/doctor_model.dart';
 import 'package:plumedica/data/repositories/admin_repo.dart';
-import 'package:plumedica/helper/api.dart';
-import 'package:plumedica/presentation/supar_admin/screens/supar_admin_home.dart';
 import 'package:plumedica/presentation/widget/snackbar_helpers.dart';
-import '../../../helper/api_service.dart';
 
 class SuperAdminCont extends GetxController {
   static SuperAdminCont get instance => Get.find();
@@ -111,7 +108,6 @@ class SuperAdminCont extends GetxController {
       bool search = searchLower.isEmpty || doctor.name.toLowerCase().contains(searchLower);
 
       bool status = statusLower.isEmpty || doctor.status.toLowerCase() == statusLower;
-
       return search && status;
     }).toList();
     filteredDoctorsList.assignAll(result);

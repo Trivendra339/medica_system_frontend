@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plumedica/data/doctor_model.dart';
+import 'package:plumedica/data/models/doctor_model.dart';
 import 'package:plumedica/helper/sizes.dart';
 import 'package:plumedica/presentation/supar_admin/controller/supar_admin_cont.dart';
 import 'package:plumedica/presentation/widget/doctor_detail.dart';
@@ -105,7 +105,7 @@ class ApproveRejection extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(middleText),
+            Text("Dr. $middleText"),
             SizedBox(height: TAppSizes.spaceBtwItems),
             TextFormField(
               controller: cont.doctorIdController,

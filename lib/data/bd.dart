@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'doctor_model.dart';
+import 'models/doctor_model.dart';
 
 class SharedPrefService {
   static const String _doctorKey = 'saved_doctor_data';

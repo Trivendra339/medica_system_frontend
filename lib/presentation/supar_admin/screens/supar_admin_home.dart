@@ -10,7 +10,7 @@ import 'package:plumedica/presentation/widget/dashboard_header.dart';
 import 'package:plumedica/presentation/widget/padding.dart';
 import 'package:plumedica/presentation/widget/round_button.dart';
 
-import '../../../data/doctor_model.dart';
+import '../../../data/models/doctor_model.dart';
 import '../../../helper/colors.dart';
 import '../../../helper/sizes.dart';
 

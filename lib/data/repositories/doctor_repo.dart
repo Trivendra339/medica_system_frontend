@@ -1,8 +1,8 @@
-import 'package:plumedica/data/doctor_model.dart';
-import 'package:plumedica/data/register_model.dart';
-import 'package:plumedica/helper/api.dart';
+import 'package:plumedica/data/models/doctor_model.dart';
+import 'package:plumedica/data/models/register_model.dart';
+import 'package:plumedica/helper/api/api.dart';
 import 'package:dio/dio.dart';
-import '../../helper/api_service.dart';
+import '../../helper/api/api_service.dart';
 
 class DoctorRepo {
   final ApiService _apiService = ApiService();

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:plumedica/helper/sizes.dart';
 import 'package:plumedica/presentation/auth/register_screen.dart';
 import 'package:plumedica/presentation/doctor/screen/home_screen.dart';
-import 'package:plumedica/presentation/supar_admin/supar_admin_home.dart';
+import 'package:plumedica/presentation/supar_admin/screens/supar_admin_home.dart';
 import 'package:plumedica/presentation/widget/padding.dart';
 import 'package:plumedica/presentation/widget/round_button.dart';
 import '../../../../helper/colors.dart';

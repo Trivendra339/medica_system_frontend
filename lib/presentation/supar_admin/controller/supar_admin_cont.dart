@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:plumedica/data/doctor_model.dart';
 import 'package:plumedica/data/repositories/admin_repo.dart';
 import 'package:plumedica/helper/api.dart';
-import 'package:plumedica/presentation/supar_admin/supar_admin_home.dart';
+import 'package:plumedica/presentation/supar_admin/screens/supar_admin_home.dart';
 import 'package:plumedica/presentation/widget/snackbar_helpers.dart';
 import '../../../helper/api_service.dart';
 
@@ -20,7 +20,7 @@ class SuperAdminCont extends GetxController {
   // List<DoctorModel>? _doctorsList;
   // List<DoctorModel>? get doctorsList => _doctorsList;
 
-  final List<DoctorModel> doctorsList = <DoctorModel>[];
+  final List<DoctorModel> doctorsList = [];
   final RxList<DoctorModel> filteredDoctorsList = <DoctorModel>[].obs;
 
 
@@ -57,7 +57,9 @@ class SuperAdminCont extends GetxController {
       _approve = response;
       update();
       TAppSnackBarHelpers.successSnackBar(title: "approve");
-      print(_approve);
+      if (kDebugMode) {
+        print(_approve);
+      }
     } catch (e) {
       TAppSnackBarHelpers.errorSnackBar(title: e.toString());
     } finally {
@@ -95,22 +97,22 @@ class SuperAdminCont extends GetxController {
   }
 
   void _applyFilter() {
-    final searchLower = searchQuery.value.toLowerCase();
-    final statusLower = selectedStatus.value.toLowerCase();
 
-    if (searchLower.isEmpty && statusLower.isEmpty) {
+
+    if (searchQuery.value.isEmpty && selectedStatus.value.isEmpty) {
       filteredDoctorsList.assignAll(doctorsList);
       return;
     }
 
+    final searchLower = searchQuery.value.toLowerCase();
+    final statusLower = selectedStatus.value.toLowerCase();
+
     var result = doctorsList.where((doctor) {
-      bool matchesSearch = searchLower.isEmpty ||
-          doctor.name.toLowerCase().contains(searchLower) ||
-          doctor.doctorId.toLowerCase().contains(searchLower);
+      bool search = searchLower.isEmpty || doctor.name.toLowerCase().contains(searchLower);
 
-      bool matchesStatus = statusLower.isEmpty || doctor.status.toLowerCase() == statusLower;
+      bool status = statusLower.isEmpty || doctor.status.toLowerCase() == statusLower;
 
-      return matchesSearch && matchesStatus;
+      return search && status;
     }).toList();
     filteredDoctorsList.assignAll(result);
   }

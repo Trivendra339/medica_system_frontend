@@ -1,31 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:plumedica/presentation/widget/round_button.dart';
-import 'package:uuid/uuid.dart';
-
 import '../../data/doctor_model.dart';
 import '../../helper/sizes.dart';
-import '../supar_admin/controller/supar_admin_cont.dart';
-
-
 
 class DoctorDetailWidget extends StatelessWidget {
-  final bool? isDoctor;
+  final bool isAdmin;
   final DoctorModel doctor;
-  final SuperAdminCont? cont;
-  final Function(String title, String middleText, VoidCallback onTap)? openDialog;
+  final Widget? widget;
 
   const DoctorDetailWidget({
     super.key,
-    this.isDoctor = false,
+    this.isAdmin = false,
     required this.doctor,
-    this.cont,
-    this.openDialog,
+    this.widget
   });
 
   @override
   Widget build(BuildContext context) {
-    const uuid = Uuid();
 
     return ListView(
       children: [
@@ -39,21 +29,6 @@ class DoctorDetailWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: TAppSizes.xl),
-
-        // _item("Name", doctor?.name),
-        // _item("Email", doctor?.email),
-        // _item("Status", doctor?.status),
-        // _item("Mobile", doctor?.mobile),
-        // _item("Qualification", doctor?.qualification),
-        // _item("Experience", "${doctor?.experience} Years"),
-        // _item("Clinic Name", doctor?.hcName),
-        // _item("Address", doctor?.hcAddress),
-        // _item("License No.", doctor?.licenseNumber),
-        // _item("doctorId", doctor?.doctorId),
-        // _item("rejectionReason", doctor?.rejectionReason),
-        // _item("Availability Days", doctor?.availabilityDays),
-        // _item("Availability Time", doctor?.availabilityTime),
-        // _item("Created At", doctor?.createdAt),
 
         _item("Name", doctor.name),
         _item("Email", doctor.email),
@@ -71,7 +46,37 @@ class DoctorDetailWidget extends StatelessWidget {
         _item("Created At", doctor.createdAt),
 
 
-        if(isDoctor != true)
+
+        widget??SizedBox()
+
+      ],
+    );
+  }
+
+  Widget _item(String? title, String? value) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ListTile(
+          dense: true,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 0),
+          title: Text(
+            title??'',
+            style: const TextStyle(fontSize: 13, color: Colors.grey),
+          ),
+          subtitle: Text(
+            (value == null || value.isEmpty) ? "N/A" : value,
+            style: const TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.w500),
+          ),
+        ),
+        const Divider(indent: 24, endIndent: 24, height: 1),
+      ],
+    );
+  }
+}
+
+/*
+  if(isDoctor != true)
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Obx(() => Row(
@@ -122,28 +127,4 @@ class DoctorDetailWidget extends StatelessWidget {
               ],
             )),
           )
-      ],
-    );
-  }
-
-  Widget _item(String? title, String? value) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ListTile(
-          dense: true,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 0),
-          title: Text(
-            title??'',
-            style: const TextStyle(fontSize: 13, color: Colors.grey),
-          ),
-          subtitle: Text(
-            (value == null || value.isEmpty) ? "N/A" : value,
-            style: const TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.w500),
-          ),
-        ),
-        const Divider(indent: 24, endIndent: 24, height: 1),
-      ],
-    );
-  }
-}
+ */

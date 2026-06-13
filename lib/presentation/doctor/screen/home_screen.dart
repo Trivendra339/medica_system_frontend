@@ -48,7 +48,6 @@ class DoctorHomeScreen extends StatelessWidget {
               Expanded(
                 child: DoctorDetailWidget(
                   doctor: currentDoctor,
-                  isDoctor: true,
                 ),
               ),
             ],

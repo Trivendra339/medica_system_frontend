@@ -81,7 +81,7 @@ class SuperAdminCont extends GetxController {
 
   void filterBySearch(String value) {
     searchQuery.value = value.trim();
-    _applyCombinedFilter();
+    _applyFilter();
   }
 
   void filterByStatus(String status) {
@@ -91,10 +91,10 @@ class SuperAdminCont extends GetxController {
       selectedStatus.value = status.trim();
     }
 
-    _applyCombinedFilter();
+    _applyFilter();
   }
 
-  void _applyCombinedFilter() {
+  void _applyFilter() {
     final searchLower = searchQuery.value.toLowerCase();
     final statusLower = selectedStatus.value.toLowerCase();
 

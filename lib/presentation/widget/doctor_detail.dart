@@ -11,14 +11,14 @@ import '../supar_admin/controller/supar_admin_cont.dart';
 
 class DoctorDetailWidget extends StatelessWidget {
   final bool? isDoctor;
-  final DoctorModel? doctor;
+  final DoctorModel doctor;
   final SuperAdminCont? cont;
   final Function(String title, String middleText, VoidCallback onTap)? openDialog;
 
   const DoctorDetailWidget({
     super.key,
     this.isDoctor = false,
-    this.doctor,
+    required this.doctor,
     this.cont,
     this.openDialog,
   });
@@ -40,20 +40,36 @@ class DoctorDetailWidget extends StatelessWidget {
         ),
         const SizedBox(height: TAppSizes.xl),
 
-        _item("Name", doctor?.name),
-        _item("Email", doctor?.email),
-        _item("Status", doctor?.status),
-        _item("Mobile", doctor?.mobile),
-        _item("Qualification", doctor?.qualification),
-        _item("Experience", "${doctor?.experience} Years"),
-        _item("Clinic Name", doctor?.hcName),
-        _item("Address", doctor?.hcAddress),
-        _item("License No.", doctor?.licenseNumber),
-        _item("doctorId", doctor?.doctorId),
-        _item("rejectionReason", doctor?.rejectionReason),
-        _item("Availability Days", doctor?.availabilityDays),
-        _item("Availability Time", doctor?.availabilityTime),
-        _item("Created At", doctor?.createdAt),
+        // _item("Name", doctor?.name),
+        // _item("Email", doctor?.email),
+        // _item("Status", doctor?.status),
+        // _item("Mobile", doctor?.mobile),
+        // _item("Qualification", doctor?.qualification),
+        // _item("Experience", "${doctor?.experience} Years"),
+        // _item("Clinic Name", doctor?.hcName),
+        // _item("Address", doctor?.hcAddress),
+        // _item("License No.", doctor?.licenseNumber),
+        // _item("doctorId", doctor?.doctorId),
+        // _item("rejectionReason", doctor?.rejectionReason),
+        // _item("Availability Days", doctor?.availabilityDays),
+        // _item("Availability Time", doctor?.availabilityTime),
+        // _item("Created At", doctor?.createdAt),
+
+        _item("Name", doctor.name),
+        _item("Email", doctor.email),
+        _item("Status", doctor.status),
+        _item("Mobile", doctor.mobile),
+        _item("Qualification", doctor.qualification),
+        _item("Experience", "${doctor.experience} Years"),
+        _item("Clinic Name", doctor.hcName),
+        _item("Address", doctor.hcAddress),
+        _item("License No.", doctor.licenseNumber),
+        _item("doctorId", doctor.doctorId),
+        _item("rejectionReason", doctor.rejectionReason),
+        _item("Availability Days", doctor.availabilityDays),
+        _item("Availability Time", doctor.availabilityTime),
+        _item("Created At", doctor.createdAt),
+
 
         if(isDoctor != true)
           Padding(

@@ -11,8 +11,8 @@ class DioClient {
   DioClient._internal() {
     dio = Dio(
       BaseOptions(
-        baseUrl: "https://medica-system.onrender.com",
-        // baseUrl: "http://10.0.2.2:8000",
+        // baseUrl: "https://medica-system.onrender.com",
+        baseUrl: "http://10.0.2.2:8000",
         connectTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
         headers: {

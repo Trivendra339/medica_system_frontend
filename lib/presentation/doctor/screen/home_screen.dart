@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart'; //
+import 'package:plumedica/data/doctor_model.dart';
 import 'package:plumedica/presentation/auth/controller/login_controller.dart';
 import 'package:plumedica/presentation/widget/dashboard_header.dart';
 import 'package:plumedica/presentation/widget/doctor_detail.dart';
@@ -24,9 +25,9 @@ class DoctorHomeScreen extends StatelessWidget {
         ],
       ),
       body: Obx(() {
-        final currentDoctor = controller.doctor.value;
+        final currentDoctor = controller.doctor.value ?? DoctorModel.empty();
 
-        if (currentDoctor == null) {
+        if (controller.isLoading.value) {
           return const Center(
             child: CircularProgressIndicator(),
           );

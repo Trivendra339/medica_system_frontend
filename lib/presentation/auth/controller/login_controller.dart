@@ -83,7 +83,7 @@ class LoginController extends GetxController {
 
 
   Future<void> login() async {
-
+    if(doctor.value != null)return;
     try {
       isLoading.value = true;
       Map<String, dynamic> data = {
@@ -94,16 +94,13 @@ class LoginController extends GetxController {
       final response = await _doctorRepo.repoLogin(data);
       doctor.value = response;
       await SharedPrefService.saveDoctor(doctor.value!);
-      clearAllControllers();
-      isLoading.value = false;
       Get.offAll(() => DoctorHomeScreen());
       return;
     } catch (e) {
       TAppSnackBarHelpers.errorSnackBar(title: e.toString());
-      isLoading.value = false;
     }finally{
       isLoading.value = false;
-      clearAllControllers();
+      cleanLoginController();
     }
   }
 
@@ -133,7 +130,7 @@ class LoginController extends GetxController {
       final responseData = await _doctorRepo.repoRegister(data);
       Map<String, dynamic> response = responseData;
       documentPath.clear();
-      clearAllControllers();
+      // clearAllControllers();
       Get.offAll(LoginScreen(role: 'doctor', roleTitle: "Doctor"));
       if (kDebugMode) {
         print(response);
@@ -180,10 +177,12 @@ class LoginController extends GetxController {
     }
   }
 
-  void clearAllControllers() {
+  void cleanLoginController(){
     emailCont.clear();
     passwordCont.clear();
+  }
 
+  void clearAllControllers() {
     name.clear();
     email.clear();
     mobile.clear();
